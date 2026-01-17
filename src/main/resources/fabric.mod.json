@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "better_with_discord",
+  "version": "${version}",
+
+  "name": "Better With Discord",
+  "description": "Discord Integration for BTA Servers",
+  "authors": [
+    "SajmonOriginal"
+  ],
+  "contact": {
+    "sources": "https://github.com/SajmonOriginal/better-with-discord"
+  },
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.sajmonoriginal.betterwithdiscord.BetterWithDiscordMod"
+    ],
+    "client": [
+    ]
+  },
+  "mixins": [
+    "better_with_discord.mixins.json"
+  ],
+
+  "depends": {
+    "minecraft": ">=7.3",
+    "fabricloader": ">=0.15.5"
+  }
+}
