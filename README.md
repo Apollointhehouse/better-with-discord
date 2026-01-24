@@ -65,4 +65,4 @@ The output JAR will be in `build/libs/`.
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+MLP 2.0 License - see [LICENSE](LICENSE) for details.
