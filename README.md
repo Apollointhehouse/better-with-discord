@@ -65,4 +65,4 @@ The output JAR will be in `build/libs/`.
 
 ## License
 
-MLP 2.0 License - see [LICENSE](LICENSE) for details.
+Mozilla Public License Version 2.0 License - see [LICENSE](LICENSE) for details.
