@@ -1,5 +1,6 @@
 package com.sajmonoriginal.betterwithdiscord.mixin.server;
 
+import com.sajmonoriginal.betterwithdiscord.server.ConsoleAppender;
 import com.sajmonoriginal.betterwithdiscord.server.DiscordChatRelay;
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,5 +17,6 @@ public class MinecraftServerMixin {
     )
     public void sendStopMessage(CallbackInfo ci) {
         DiscordChatRelay.sendServerStoppedMessage();
+        ConsoleAppender.unregister();
     }
 }

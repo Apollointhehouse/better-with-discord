@@ -22,6 +22,12 @@ public class BetterWithDiscordConfig {
     public static String discord_channel = "CHANNEL ID";
     public static String discord_serverpfp_url = "https://i.imgur.com/dJUId0O.png";
     public static String discord_servername = "Server";
+    
+    public static boolean console_enable = false;
+    public static String console_channel = "";
+    public static boolean console_commands_enable = true;
+    public static String console_command_prefix = "";
+    public static java.util.List<String> console_command_blacklist = new java.util.ArrayList<>(java.util.Arrays.asList("stop", "op", "deop", "ban", "pardon"));
 
     public static void load() {
         File file = getFilePath();
@@ -68,21 +74,32 @@ public class BetterWithDiscordConfig {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public static <T> T get(JsonObject object, String key, T defaultValue) {
         JsonElement element = object.get(key);
         if (element == null) {
             object.add(key, GSON.toJsonTree(defaultValue));
             return defaultValue;
         }
+        if (defaultValue instanceof java.util.List) {
+            return (T) GSON.fromJson(element, java.util.ArrayList.class);
+        }
         return GSON.fromJson(element, (Class<T>)defaultValue.getClass());
     }
 
+    @SuppressWarnings("unchecked")
     public static void updateValues(JsonObject object) {
         discord_enable = get(object, "enable", discord_enable);
         discord_token = get(object, "token", discord_token);
         discord_channel = get(object, "channel", discord_channel);
         discord_serverpfp_url = get(object, "serverpfp_url", discord_serverpfp_url);
         discord_servername = get(object, "servername", discord_servername);
+        
+        console_enable = get(object, "console_enable", console_enable);
+        console_channel = get(object, "console_channel", console_channel);
+        console_commands_enable = get(object, "console_commands_enable", console_commands_enable);
+        console_command_prefix = get(object, "console_command_prefix", console_command_prefix);
+        console_command_blacklist = get(object, "console_command_blacklist", console_command_blacklist);
     }
 
     public static File getFilePath() {

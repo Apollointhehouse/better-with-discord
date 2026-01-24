@@ -36,8 +36,14 @@ public class DiscordClient {
                     GatewayIntent.GUILD_WEBHOOKS
             );
             builder.addEventListeners(new Listener());
+            builder.addEventListeners(new DiscordConsoleListener());
 
             jda = builder.build().awaitReady();
+            
+            if (BetterWithDiscordConfig.console_enable) {
+                ConsoleAppender.register();
+                BetterWithDiscordMod.LOGGER.info("Console forwarding enabled to channel: {}", BetterWithDiscordConfig.console_channel);
+            }
 
             return true;
         } catch (Throwable t) {
