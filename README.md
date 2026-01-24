@@ -1,6 +1,6 @@
 # Better With Discord
 
-A Discord integration mod for [Better than Adventure!](https://www.betterthanadventure.net/) servers.
+A Discord integration mod for **[Better Than Adventure](https://www.betterthanadventure.net/) 7.3** running on [Babric](https://github.com/Turnip-Labs/bta-fabric-instance-repo) mod loader.
 
 ## Features
 
@@ -11,16 +11,10 @@ A Discord integration mod for [Better than Adventure!](https://www.betterthanadv
 - **Server Status** - Server start/stop messages
 - **Player Avatars** - Messages show player skins via webhooks
 
-## Requirements
-
-- Better than Adventure! 7.3+
-- Fabric Loader 0.15.5+
-- A Discord Bot Token ([create one here](https://discord.com/developers/applications))
-
 ## Installation
 
-1. Download the latest release from [Releases](https://github.com/SajmonOriginal/better-with-discord/releases)
-2. Place the `.jar` file in your server's `mods/` folder
+1. Download `better_with_discord-1.0.0.jar` from releases
+2. Place the JAR in your server's `mods/` folder
 3. Start the server once to generate the config file
 4. Configure the mod (see below)
 5. Restart the server
@@ -67,7 +61,8 @@ Edit `config/better_with_discord.json`:
 ./gradlew build
 ```
 
-The built jar will be in `build/libs/`.
+The output JAR will be in `build/libs/`.
+
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details.
