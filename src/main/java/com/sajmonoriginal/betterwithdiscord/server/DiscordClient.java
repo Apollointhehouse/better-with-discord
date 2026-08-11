@@ -98,9 +98,7 @@ public class DiscordClient {
 
         @Override
         public void onEvent(@NotNull GenericEvent event) {
-            if (event instanceof MessageReceivedEvent) {
-                MessageReceivedEvent message = (MessageReceivedEvent) event;
-
+            if (event instanceof MessageReceivedEvent message) {
                 if (message.isWebhookMessage() || message.getAuthor().isBot() || message.getAuthor().isSystem()) {
                     return;
                 }

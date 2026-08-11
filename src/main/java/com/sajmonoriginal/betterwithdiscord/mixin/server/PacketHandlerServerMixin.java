@@ -17,7 +17,7 @@ public class PacketHandlerServerMixin {
     @Shadow private PlayerServer playerEntity;
 
     @Redirect(
-            method = "handleChat",
+            method = "handleMessage",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/core/net/ChatEmotes;process(Ljava/lang/String;)Ljava/lang/String;"
@@ -41,7 +41,7 @@ public class PacketHandlerServerMixin {
             method = "handleErrorMessage",
             at = @At("HEAD")
     )
-    void sendLeaveMessage(String s, Object[] aobj, CallbackInfo ci) {
+    void sendLeaveMessage(String message, Object[] objects, CallbackInfo ci) {
         String username = playerEntity.username;
         DiscordChatRelay.sendJoinLeaveMessage(username, false);
     }

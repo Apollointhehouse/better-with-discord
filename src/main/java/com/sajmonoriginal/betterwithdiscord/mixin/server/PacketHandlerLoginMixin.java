@@ -1,5 +1,6 @@
 package com.sajmonoriginal.betterwithdiscord.mixin.server;
 
+import com.llamalad7.mixinextras.sugar.Local;
 import com.sajmonoriginal.betterwithdiscord.server.DiscordChatRelay;
 import net.minecraft.core.net.packet.PacketLogin;
 import net.minecraft.server.entity.player.PlayerServer;
@@ -8,7 +9,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(value = PacketHandlerLogin.class, remap = false)
 public class PacketHandlerLoginMixin {
@@ -19,10 +19,9 @@ public class PacketHandlerLoginMixin {
                     target = "Lnet/minecraft/server/net/PlayerList;sendPacketToAllPlayers(Lnet/minecraft/core/net/packet/Packet;)V",
                     shift = At.Shift.BEFORE,
                     ordinal = 0
-            ),
-            locals = LocalCapture.CAPTURE_FAILHARD
+            )
     )
-    void sendJoinMessage(PacketLogin packetLogin, CallbackInfo ci, PlayerServer player) {
+    void sendJoinMessage(PacketLogin packetLogin, CallbackInfo ci, @Local(name = "player") PlayerServer player) {
         String username = player.username;
         DiscordChatRelay.sendJoinLeaveMessage(username, true);
     }

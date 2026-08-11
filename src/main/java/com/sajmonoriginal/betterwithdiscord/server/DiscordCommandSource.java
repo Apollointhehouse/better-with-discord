@@ -5,9 +5,13 @@ import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
 import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.net.command.CommandSource;
 import net.minecraft.core.net.packet.Packet;
-import net.minecraft.core.util.phys.Vec3;
 import net.minecraft.core.world.World;
+import net.minecraft.core.world.pos.TilePos;
+import net.minecraft.core.world.pos.TilePosc;
 import net.minecraft.server.MinecraftServer;
+import org.jetbrains.annotations.Nullable;
+import org.joml.Vector3d;
+import org.joml.Vector3dc;
 
 import java.util.function.Supplier;
 
@@ -42,8 +46,8 @@ public class DiscordCommandSource implements CommandSource {
         return null;
     }
 
-    public Vec3 getPosition() {
-        return Vec3.getTempVec3(0, 64, 0);
+    public Vector3d getPosition() {
+        return new Vector3d(0, 64, 0);
     }
 
     @Override
@@ -98,13 +102,13 @@ public class DiscordCommandSource implements CommandSource {
     }
 
     @Override
-    public Vec3 getBlockCoordinates() {
-        return Vec3.getTempVec3(0, 64, 0);
+    public @Nullable TilePosc getBlockCoordinates() {
+        return new TilePos(0, 64, 0);
     }
 
     @Override
-    public Vec3 getCoordinates(boolean blockCoordinates) {
-        return Vec3.getTempVec3(0, 64, 0);
+    public @Nullable Vector3dc getCoordinates(boolean blockCoordinates) {
+        return new Vector3d(0, 64, 0);
     }
 
     @Override

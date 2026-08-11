@@ -9,11 +9,12 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.minecraft.core.net.command.CommandManager;
 import net.minecraft.core.world.World;
 import net.minecraft.server.MinecraftServer;
+import org.jetbrains.annotations.NotNull;
 
 public class DiscordConsoleListener extends ListenerAdapter {
 
     @Override
-    public void onMessageReceived(MessageReceivedEvent event) {
+    public void onMessageReceived(@NotNull MessageReceivedEvent event) {
         if (!BetterWithDiscordConfig.console_enable || !BetterWithDiscordConfig.console_commands_enable) {
             return;
         }

@@ -98,13 +98,13 @@ public class ConsoleAppender extends AbstractAppender {
                 sendBatch(channel, batch.toString());
                 batch = new StringBuilder();
             }
-            if (batch.length() > 0) {
+            if (!batch.isEmpty()) {
                 batch.append("\n");
             }
             batch.append(line);
         }
 
-        if (batch.length() > 0) {
+        if (!batch.isEmpty()) {
             sendBatch(channel, batch.toString());
         }
     }

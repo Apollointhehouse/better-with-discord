@@ -4,10 +4,10 @@ import com.sajmonoriginal.betterwithdiscord.server.DiscordChatRelay;
 import com.sajmonoriginal.betterwithdiscord.server.DiscordClient;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.slf4j.LoggerFactory;import turniplabs.halplibe.HalpLibe;
 
 public class BetterWithDiscordMod implements ModInitializer {
-    public static final String MOD_ID = "better_with_discord";
+    public static final String MOD_ID = HalpLibe.registerMod("better_with_discord");
     public static final Logger LOGGER = LoggerFactory.getLogger("Better With Discord");
 
     @Override
